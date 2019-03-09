@@ -41,7 +41,7 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
-
+toc_levels: 1..4
 
 
 # Disqus settings

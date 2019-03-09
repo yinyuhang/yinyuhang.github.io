@@ -8,7 +8,8 @@ tag:
     - 翻译
     - Java
 ---
-### [原文地址](https://stackoverflow.com/questions/54285043/does-jdk-automatically-generate-proxy-classes-for-custom-annotations)
+### 问题
+[原文地址](https://stackoverflow.com/questions/54285043/does-jdk-automatically-generate-proxy-classes-for-custom-annotations)
 ```
 @Retention(RetentionPolicy.RUNTIME)
 @Target(value={ElementType.TYPE})

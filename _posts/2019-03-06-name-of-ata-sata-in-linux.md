@@ -1,14 +1,16 @@
 ---
 layout: post
 title: "Linux 下 ATA 与 SATA 的命名规则"
-subtitle: "搬运"
+subtitle: "StackOverflow"
 date: 2019-03-06 22:11:05
 catalog: true
 tag: 
     - 翻译
     - Linux
 ---
+### 问题
 [原文地址](https://unix.stackexchange.com/questions/2447/names-for-ata-and-sata-disks-in-linux)
+
 假设现在有两块磁盘，**one master SATA and one master ATA**,他们在 `/dev` 下会如何呈现？
 
 -----------------------------

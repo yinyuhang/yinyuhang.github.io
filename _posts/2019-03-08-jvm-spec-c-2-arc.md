@@ -8,7 +8,7 @@ tag:
     - 翻译
     - JVM Specification
 ---
-这篇文档只阐述了一个抽象的模型。而不会谈到JVM任何具体的实现。
+本章只阐述了一个抽象的模型。而不会谈到JVM任何具体的实现。
 
 为了正确的实现JVM，必须能够正确的解析 `class` 的文件格式并执行其中的操作。`JVM规范`不涉及实现细节，因为这样会为人们戴上枷锁。比如，运行时数据区域的内存布局，垃圾回收(gc)算法的使用和其他可对JVM指令可做出的优化(例如，将指令翻译为机器码)，这些都交由实现者决定。
 
@@ -49,6 +49,8 @@ boolean 会被编码为`true`或`false`，默认为`false`。
 `returnAddress`的值是JVM指令操作码的指针。在所有基本类型中，只有`returnAddress`没有直接体现在Java语言中。
 
 #### 2.3.1 整型
+[推荐阅读原文](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.3.1)
+
 整型值的范围：
 * `byte`, \[-128, 127\](2的七次方)
 * `short`，\[-32768, 32767](2的十五次方)
@@ -60,7 +62,7 @@ boolean 会被编码为`true`或`false`，默认为`false`。
 [推荐阅读原文](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.3.2)
 
 #### 2.3.3 `returnAddress`
-JVM有三个指令会用到`returnAddress`类型：`[jsr](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.jsr),[ret](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.ret),[jsr_w](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.jsr_w)`。`returnAddress`的值是一个指针，指向JVM指令的操作码。不像整型，`returnAddress`在Java中没有对应的类型，并且无法在运行时期修改。
+JVM有三个指令会用到`returnAddress`类型： [`jsr`](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.jsr), [`ret`](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.ret), [`jsr_w`](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-6.html#jvms-6.5.jsr_w)。`returnAddress`的值是一个指针，指向JVM指令的操作码。不像整型，`returnAddress`在Java中没有对应的类型，并且无法在运行时期修改。
 
 #### 2.3.4 `boolean`
 
