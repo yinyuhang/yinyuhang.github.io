@@ -1,0 +1,125 @@
+---
+layout: page
+title: "About"
+description: "自己的破壁人"
+header-img: "img/about-bg.jpg"
+---
+
+<!-- Language Selector -->
+<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
+    <option value="0" selected> 中文 Chinese </option>
+    <option value="1"> 英语 English </option>
+</select>
+
+<!-- Chinese Version -->
+<div class="zh post-container">
+    <blockquote>
+        应用服务，操作系统，技术开发该何去何从
+    </blockquote>
+    章北海扣动了扳机，手枪在寂静中激发，但他看到了枪口的火光，感受到了后座力。他对第一个目标击发了十次，马上飞快换上新的弹夹，对第二个目标又射出十发子弹；再次换上弹夹，把最后十颗子弹射向第三个目标。枪口闪烁了三十次，如果黄河站方向这时真有人注意到的话，就像看到太空暗黑背景上的一只萤火虫。<br><br><br><br>雷迪亚兹高举双手，含着热泪对着拥向他的人深情地呼唤道：“啊，我的人民！”<br><br>他的人民扔来的第一块石头打在他高举的左手上，第二块石头击中了他的前胸，第三块砸在了前额上并击倒了他。随后，人民的石头像雨点般飞来，最后几乎埋住了他那早已没有生命的躯体。砸向面壁者雷迪亚兹的最后一块石头是一位老太太扔的，她吃力地举着那块石头一直走到雷迪亚兹的尸体前，用西班牙语说：<br><br>“恶人，你要杀死所有的人，那里面可是有我的孙子，你竟想杀我的孙子！“说着，她用尽力气，颤巍巍地把手中的石头砸到雷迪亚兹从石堆中露出的已经破碎的头颅上。<br><br><br><br>首先从四维空间看三维世界的人，首先领悟到一点：以前身处三维世界时，他其实根本没看见过自己的世界，如果把三维世界也比做一张画，他看到的只是那张画与他的脸平面垂直放置时的样子，看到的只是画的侧面，一条线；只有从四维看，画才对他平放了。他会这样描述：任何东西都不可能挡住它后面的东西，任何封闭体的内部也都是能看到的。这只是一个简单的规则，但如果世界真按这个规则呈现，在视觉上是极其震撼的。当所有的遮挡和封闭都不存在，一切都暴露在外时，目击者首先面对的是相当于把三维世界中亿万倍的信息量，对于涌进视觉的海量信息，大脑一时无法把握。
+
+    <p style="text-align:right;">
+        —— <a href="https://www.google.com/search?client=firefox-b-d&q=%E4%B8%89%E4%BD%93">刘慈欣--《三体II》/《三体III》 </a>
+    </p>
+
+</div>
+
+<!-- English Version -->
+<div class="en post-container">
+    <blockquote>
+        Designer or Engineer, things in between.
+    </blockquote>
+
+    <p>
+        Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it.
+    </p>
+
+    <p>
+    If you want to live your life in a creative way, as an artist, you have to not look back too much. You have to be willing to take whatever you’ve done and whoever you were and throw them away.
+    </p>
+
+    <p style="text-align:right;">
+    -- Steve Jobs
+    </p>
+
+</div>
+
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    function onLanChange(index){
+        if(index == 0){
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }else{
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        }
+    }
+    onLanChange(0);
+</script>
+
+
+
+{% if site.duoshuo_username %}
+<!-- 多说评论框 start -->
+<div class="comment">
+    <div class="ds-thread"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
+    data-title="{{page.title}}"
+    data-url="{{site.url}}/about/"></div>
+</div>
+<!-- 多说评论框 end -->
+
+<!-- Duoshuo hacking -->
+<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User hacking by Hux
+    var _user = document.getElementById('dsUser').value;
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+{% endif %}
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}
