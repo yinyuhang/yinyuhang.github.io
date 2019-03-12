@@ -2,13 +2,31 @@
 layout: post
 title: "Linux 踩坑小计"
 subtitle: "随记"
-date: 2019-03-08 15:11:05
+date: 2019-03-12 21:12:05
 tag: 
     - 随记
     - Linux
 ---
-### 为虚拟机添加硬盘后， ```fdisk -l``` 中不显示
-先 ``` cat /proc/scsi/scsi```
+
+### Docker 内容器可以ping通宿主机IP，但是无法访问其他容器映射在宿主机上的端口
+问题描述：现宿主机A内Docker运行了两个容器B与C。B的80端口映射到宿主机A的80端口，外部PC可以访问B提供的服务。但在C容器内，经测试能ping通宿主机A的IP，但是却无法访问B提供的服务
+
+问题原因：docker的一个已知Bug
+
+解决方法：Centos7环境下，向`/etc/firewalld/zones/public.xml`中添加一条规则：
+```
+# 这里的address需要根据容器的实际IP与子网掩码来进行修改。
+<rule family="ipv4">
+  <source address="172.18.0.0/16"/>
+  <accept/>
+</rule>
+```
+然后重启防火墙`systemctl restart firewalld`即可。
+
+--------------------------
+
+### 为虚拟机添加硬盘后，`fdisk -l`中不显示
+先`cat /proc/scsi/scsi`
 我机器上的输出为
 ```
 Attached devices:
@@ -48,3 +66,5 @@ lsmod | grep zfs
 **参考资料：**
 * [zfs-on-linux-RHEL-and-CentOS](https://github.com/zfsonlinux/zfs/wiki/RHEL-and-CentOS)
 * [Oracle官方使用文档](https://docs.oracle.com/cd/E24847_01/html/819-7065/zfsover-1.html#scrolltoc)
+
+----------------------
