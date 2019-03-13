@@ -9,11 +9,11 @@ tag:
 ---
 
 ### Docker 内容器可以ping通宿主机IP，但是无法访问其他容器映射在宿主机上的端口
-问题描述：现宿主机A内Docker运行了两个容器B与C。B的80端口映射到宿主机A的80端口，外部PC可以访问B提供的服务。但在C容器内，经测试能ping通宿主机A的IP，但是却无法访问B提供的服务
+**问题描述**：现宿主机A内Docker运行了两个容器B与C。B的80端口映射到宿主机A的80端口，外部PC可以访问B提供的服务。但在C容器内，经测试能ping通宿主机A的IP，但是却无法访问B提供的服务
 
-问题原因：docker的一个已知Bug
+**问题原因**：docker的一个已知Bug
 
-解决方法：Centos7环境下，向`/etc/firewalld/zones/public.xml`中添加一条规则：
+**解决方法**：Centos7环境下，向`/etc/firewalld/zones/public.xml`中添加一条规则：
 ```
 # 这里的address需要根据容器的实际IP与子网掩码来进行修改。
 <rule family="ipv4">

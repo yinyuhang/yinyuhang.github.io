@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "工作中遇到的待解决的问题"
+title: "未解决的问题"
 subtitle: "随记"
 date: 2019-03-11 20:00:05
 tag: 
