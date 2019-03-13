@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "遇到的问题及解决思路"
+title: "问题，思路，答案，总结"
 subtitle: "随记"
 date: 2019-03-11 20:00:05
 tag: 
