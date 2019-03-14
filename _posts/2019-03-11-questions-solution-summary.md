@@ -8,10 +8,60 @@ tag:
     - c++
 ---
 
+#### 使用iterator移除Map中元素时，Integer与String类型的现象不同
+代码段1
+```
+@Test
+public void test1() {
+    HashMap<HashMap<String, String>, String> map = new HashMap<>();
+    HashMap<String, String> key = new HashMap<>();
+    map.put(key, "key");
+    System.out.println(map.size());
+    Iterator<Map.Entry<HashMap<String, String>, String>> iterator = map.entrySet().iterator();
+    while (iterator.hasNext()) {
+        iterator.next().getKey().put("1", "1");
+        iterator.remove();
+    }
+    System.out.println(map.size());
+}
+
+-----OUTPUT-----------
+1
+0
+```
+
+代码段2
+```
+@Test
+public void test3() {
+    HashMap<HashMap<String, Integer>, String> map = new HashMap<>();
+    HashMap<String, Integer> key = new HashMap<>();
+    map.put(key, "key");
+    System.out.println(map.size());
+    Iterator<Map.Entry<HashMap<String, Integer>, String>>iterator = map.entrySet().iterator();
+    for (; iterator.hasNext(); ) {
+        iterator.next().getKey().put("1", 1);
+        iterator.remove();
+    }
+    System.out.println(map.size());
+}
+-------OUTPUT----------
+1
+1
+```
+
+
 ------------------------------------
 
 #### `g++`必须使用`-lxxx`才能通过编译
-![details](/img/post/g++-l-error-info.png)
+```
+$ g++ log.cpp -llog4cplus
+$ g++ log.cpp
+/tmp/cc6uljhh.o: In function `main':
+log.cpp:(.text+0x20): undefined reference to `log4cplus::Logger::getRoot()'
+log.cpp:(.text+0x31): undefined reference to `log4cplus::Logger::~Logger()'
+collect2: error: ld returned 1 exit status
+```
 **思路**
 * -l 选项的作用
 * 报错信息处于gcc编译的哪个阶段
