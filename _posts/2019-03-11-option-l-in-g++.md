@@ -1,59 +1,13 @@
 ---
 layout: post
-title: "问题，思路，答案，总结"
+title: "g++ -l 选项"
 subtitle: "随记"
 date: 2019-03-11 20:00:05
 tag: 
-    - 疑问
     - c++
 ---
-
-#### 使用iterator移除Map中元素时，Integer与String类型的现象不同
-代码段1
-```
-@Test
-public void test1() {
-    HashMap<HashMap<String, String>, String> map = new HashMap<>();
-    HashMap<String, String> key = new HashMap<>();
-    map.put(key, "key");
-    System.out.println(map.size());
-    Iterator<Map.Entry<HashMap<String, String>, String>> iterator = map.entrySet().iterator();
-    while (iterator.hasNext()) {
-        iterator.next().getKey().put("1", "1");
-        iterator.remove();
-    }
-    System.out.println(map.size());
-}
-
------OUTPUT-----------
-1
-0
-```
-
-代码段2
-```
-@Test
-public void test3() {
-    HashMap<HashMap<String, Integer>, String> map = new HashMap<>();
-    HashMap<String, Integer> key = new HashMap<>();
-    map.put(key, "key");
-    System.out.println(map.size());
-    Iterator<Map.Entry<HashMap<String, Integer>, String>>iterator = map.entrySet().iterator();
-    for (; iterator.hasNext(); ) {
-        iterator.next().getKey().put("1", 1);
-        iterator.remove();
-    }
-    System.out.println(map.size());
-}
--------OUTPUT----------
-1
-1
-```
-
-
-------------------------------------
-
-#### `g++`必须使用`-lxxx`才能通过编译
+**问题**
+为什么有些时候`g++`必须使用`-lxxx`才能通过编译
 ```
 $ g++ log.cpp -llog4cplus
 $ g++ log.cpp
