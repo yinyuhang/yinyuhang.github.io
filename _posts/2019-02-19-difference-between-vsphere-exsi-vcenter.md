@@ -42,6 +42,7 @@ Hypervisor 按类型划分的话分两种，`type 1 hypervisor`是一种直接�
 
 参考资料
 
+* ![现代操作系统第四版](/img/cloudcomputing/Hypervisor.png)
 * [什么是hypervisor](https://vapour-apps.com/what-is-hypervisor/)
 * [KVM 是一类还是二类的hypervisor](https://serverfault.com/questions/855094/is-kvm-a-type-1-or-type-2-hypervisor)
 
