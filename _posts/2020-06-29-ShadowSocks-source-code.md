@@ -154,6 +154,9 @@ def _handle_stage_stream(self, data):
 
 数据包除了IP头信息和TCP头信息不同外，其他完全一致。
 
+## PS
+另一款工具wireguard则是使用虚拟网卡(驱动wintun)，通过修改路由表使所有请求走虚拟网卡，在三层上将所有包改成udp包进行转发。较于ss，更为快速。同时由于直接使用虚拟网卡，较于SS的代理更为彻底，比如NAT模式下的虚拟机也可一并翻墙。
+
 ## 参考资料
 * [socks5协议详解](https://jiajunhuang.com/articles/2019_06_06-socks5.md.html)
 * [RFC-socks5](https://tools.ietf.org/html/rfc1928)
